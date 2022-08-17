@@ -13,13 +13,16 @@ public class BennettA2 {
 		boolean win = false;
 		answer = target.nextInt(MAX) + 1;
 		int chances = 5;
-		System.out.println(answer);
+		//System.out.println(answer);
 
 		while (!win && chances > 0) {
 			System.out.println("Guess a number between 1 and 100: ");
 			guess = in.nextInt();
 			chances--;
-			if (guess > answer && chances != 0) {
+			if (guess <= 0 || guess >= 101) {
+				System.out.println("Guess outside of range, please guess again");
+			}
+			else if (guess > answer && chances != 0) {
 				System.out.println("Too high, try again");
 			} else if (guess < answer && chances != 0) {
 				System.out.println("Too low, try again");
@@ -27,7 +30,7 @@ public class BennettA2 {
 				System.out.println("You guessed the number");
 				win = true;
 			} else if (chances == 0 && win != true) {
-				System.out.println("Bummer you lose");
+				System.out.println("Bummer you lose the number was: " + answer);
 				break;
 			}
 		}
