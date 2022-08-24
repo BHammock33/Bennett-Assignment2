@@ -21,6 +21,7 @@ public class BennettA2 {
 			chances--;
 			if (guess <= 0 || guess >= 101) {
 				System.out.println("Guess outside of range, please guess again");
+				chances++;
 			}
 			else if (guess > answer && chances != 0) {
 				System.out.println("Too high, try again");
